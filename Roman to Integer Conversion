@@ -1,0 +1,29 @@
+#Convert a roman number to integer
+class Solution(object):
+    def romanToInt(self, roman_num):
+        """
+        :type s: str
+        :rtype: int
+        """
+        dict_1 = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        integer = 0
+        integer_list=[]
+        sorted_list=[]
+        for i in roman_num:
+            numbers=dict_1.get(i)
+            integer_list.append(numbers)
+        # print(integer_list)
+        new_number=0
+        for i in range(len(integer_list)):
+            number=integer_list[i]
+            index_num=integer_list.index(number)
+            if integer_list.index(number)>=integer_list.index(max(integer_list)):
+                new_number=new_number+number
+                # print("minus is executed")
+            else:
+                new_number=new_number-number
+                # print("plus is executed")
+        print(new_number)
+
+a = Solution()
+a.romanToInt('VII')
