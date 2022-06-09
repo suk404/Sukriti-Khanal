@@ -1,0 +1,27 @@
+# Lucky number from a matrix, minimum in the row but maximum in the column
+import numpy as np
+class Solution(object):
+    def luckyNumbers (self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+        lucky_num=[]
+        max_col=[]
+        min_row=[]
+        numbers=np.array(matrix)
+
+        for i in numbers.T:
+            max_col.append(i.max())
+        # print(max_col)
+        for row in numbers:
+            min_row.append(row.min())
+        # print(min_row)
+        for numbers in min_row:
+            if numbers in max_col:
+                lucky_num.append(numbers)
+            else:
+                continue
+        print(lucky_num)
+a=Solution()
+a.luckyNumbers([[3,7,8],[9,11,13],[15,16,17]])
