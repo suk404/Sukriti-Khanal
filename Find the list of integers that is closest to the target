@@ -1,0 +1,33 @@
+#Three numbers which are closest to the target.
+class Solution(object):
+    def threeSumClosest(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        import itertools
+        list_combo=[]
+        sum=0
+        sum_list=[]
+        abs_list=[]
+        possible_combination=list(itertools.combinations(nums,3))
+        for items in list(possible_combination):
+            list_combo.append(list(items))
+        for i in range(len(list_combo)):
+            # print("list of the numbers are: ",list_combo[i])
+            sum=0
+            for individual in list_combo[i]:
+                # print("individual numbers on the list are: ", individual)
+                sum=sum+individual
+            sum_list.append(sum)
+            # print("sum of the list is", sum)
+        # print(sum_list)
+        for j in sum_list:
+            store=abs(j-target)
+            abs_list.append(store)
+        # print(abs_list)
+        # print(min(abs_list))
+        print(sum_list[abs_list.index(min(abs_list))])
+a=Solution()
+a.threeSumClosest([-1,2,1,-4],1)
