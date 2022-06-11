@@ -1,0 +1,26 @@
+#Longest Common prefix
+class Solution(object):
+
+    def longestCommonPrefix(self, strs):
+        from collections import Counter
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        count_letters={}
+
+        for numm in range(len(strs)):
+            i=1
+            for words in strs[numm]:
+                if words in count_letters.keys():
+                    count_letters[words]=count_letters.get(words)+1
+                else:
+                    count_letters[words]=i
+
+        for key,value in count_letters.items():
+            if value>=3:
+                store=key
+                print(str(store))
+
+a=Solution()
+a.longestCommonPrefix(['flower','flow','flight'])
