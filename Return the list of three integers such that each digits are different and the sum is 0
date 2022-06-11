@@ -1,0 +1,31 @@
+# Return the list of three integers such that each digits are different and the sum is 0
+class Solution(object):
+
+    def threeSum(self, nums):
+        import random
+        import itertools
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        print(nums)
+        perm=list(itertools.combinations(nums,3))
+        # print(perm)
+        poss_com=[]
+        sum=0
+        for i in (perm):
+            poss_com.append(list(i))
+        # print(poss_com)
+        sum_list=[]
+        for i in range(len(poss_com)):
+            # print("list of number is",poss_com[i])
+            sum=0
+            for digits in poss_com[i]:
+                # print("individual digits are",digits)
+                sum=sum+digits
+                # print("sum is",sum)
+            if sum==0:
+                print("ultimate combo is",poss_com[i])
+                print("=========================================")
+nums=Solution()
+nums.threeSum([-1,0,1,2,-1,-4])
